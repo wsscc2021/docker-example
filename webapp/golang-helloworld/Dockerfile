@@ -7,15 +7,15 @@ COPY src/ ./
 
 RUN go mod tidy \
  && go mod download \
- && go build -o ./greet
+ && go build -o ./main
 
 # Runtime stage
 FROM golang:1.17-alpine
 
 WORKDIR /app
 
-COPY --from=build /source/greet ./
+COPY --from=build /source/main ./
 
-RUN chmod +x ./greet
+RUN chmod +x ./main
 
-ENTRYPOINT ["./greet"]
+ENTRYPOINT ["./main"]
