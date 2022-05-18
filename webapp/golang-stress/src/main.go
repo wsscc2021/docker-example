@@ -36,7 +36,7 @@ func stressCpuApiHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func sub() {
-	for i := 1; i <= 1000000; i++ {
+	for i := 1; i <= 10000; i++ {
 		x := rand.Float64()
 		x *= x
 	}
